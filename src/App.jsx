@@ -4,36 +4,37 @@ import styles from './App.module.css';
 const portfolio = {
   name: 'Saicharan Peddapelli',
   initials: 'SP',
-  title: 'Computer Science · Web Development',
+  title: 'Software / Full-Stack Developer',
   phone: '8801705149',
   email: 'saicharanpeddapelli@proton.me',
   github: 'https://github.com/saicharan-cmd',
+  linkedin: 'https://www.linkedin.com/in/saicharan-peddapelli-a98655229/',
   website: 'https://saicharanpeddapelli.in',
   summary:
-    'Creating dynamic, responsive websites and web applications using HTML, CSS, JavaScript, and modern frameworks such as React. Passionate about user experience without any bugs. Dedicated to delivering clean, maintainable code and seamless user interactions.',
-  strengths: ['Responsive web applications', 'Clean, maintainable code', 'Seamless user interactions'],
+    'Computer Science graduate with hands-on experience building responsive web applications and backend APIs using HTML, CSS, JavaScript, React, Python, FastAPI, MongoDB, and Streamlit. Developed practical projects focused on clean code, usability, CRUD operations, and efficient data handling. Seeking a fresher software development opportunity.',
+  strengths: ['Responsive web applications', 'Backend APIs & CRUD operations', 'Clean, maintainable code'],
   skills: [
-    { label: 'Languages', items: ['JavaScript', 'TypeScript', 'C', 'C++', 'Java', 'Python'] },
-    { label: 'Frameworks / Libraries', items: ['Docker', 'Streamlit', 'FastAPI', 'MongoDB'] },
-    { label: 'Version Control', items: ['Git', 'GitHub'] },
-    { label: 'APIs', items: ['FastAPI'] }
+    { label: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'C', 'C++', 'Java'] },
+    { label: 'Frameworks & Libraries', items: ['React', 'FastAPI', 'Flask', 'Streamlit'] },
+    { label: 'Databases', items: ['MongoDB', 'PostgreSQL'] },
+    { label: 'Tools & Version Control', items: ['Git', 'GitHub', 'Docker'] }
   ],
   education: [
-    { institution: 'Vaageswari, Karimnagar', detail: 'B.Tech in Computer Science', dates: '21 — 25' },
+    { institution: 'Vaageswari, Karimnagar', detail: 'B.Tech in Computer Science', dates: '2021 — 2025' },
     { institution: 'Kendriya Vidyalaya, Karimnagar', detail: 'XII with Python' }
   ],
   projects: [
     {
       name: 'BudgetApp',
-      description: 'Designed a responsive application for managing budgets and transactions.',
+      description: 'Designed a responsive budgeting application for managing budgets and transactions, with a focus on clarity and everyday usability.',
       highlights: ['Customizable categories', 'Spending insights', 'Improved budget-tracking efficiency'],
       url: 'https://github.com/saicharan-cmd/BudgetApp'
     },
     {
-      name: 'Noteapi',
-      description: 'Created a notes app enabling seamless CRUD operations, with a focus on performance, simplicity, and clean user interaction.',
+      name: 'NoteAPI',
+      description: 'Built a notes application with CRUD operations using FastAPI and MongoDB, with Streamlit for the user interface.',
       technologies: ['FastAPI', 'MongoDB', 'Streamlit'],
-      highlights: ['Seamless CRUD operations', 'Performance-focused', 'Clean user interaction'],
+      highlights: ['Seamless CRUD operations', 'Performance-focused and simple', 'Clean user interaction'],
       url: 'https://github.com/saicharan-cmd/Noteapp'
     }
   ],
@@ -53,6 +54,7 @@ function Icon({ name, size = 18 }) {
   const icons = {
     arrow: <path d="M5 19 19 5M8 5h11v11" />,
     github: <path d="M12 2.8a9.2 9.2 0 0 0-2.9 17.93c.46.08.63-.2.63-.45v-1.77c-2.57.56-3.11-1.1-3.11-1.1-.42-1.07-1.03-1.36-1.03-1.36-.84-.58.07-.57.07-.57.94.07 1.43.96 1.43.96.83 1.43 2.18 1.02 2.72.78.08-.6.33-1.02.59-1.26-2.05-.23-4.21-1.02-4.21-4.57 0-1.01.36-1.84.96-2.49-.1-.23-.42-1.18.09-2.46 0 0 .78-.25 2.53.95a8.75 8.75 0 0 1 4.6 0c1.75-1.2 2.53-.95 2.53-.95.51 1.28.19 2.23.1 2.46.59.65.95 1.48.95 2.49 0 3.56-2.17 4.33-4.23 4.56.34.29.63.85.63 1.71v2.54c0 .25.17.54.63.45A9.2 9.2 0 0 0 12 2.8Z" />,
+    linkedin: <><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M7.6 10.4V17M7.6 7.1v.02M11.4 17v-3.6a2.1 2.1 0 0 1 4.2 0V17" /></>,
     mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
     phone: <path d="M7.5 3.5 5.62 4.38c-.88.42-1.31 1.42-1.03 2.35a19.2 19.2 0 0 0 12.3 12.3c.93.28 1.93-.15 2.35-1.03l.88-1.88-3.45-2.3-1.47 1.47a14.8 14.8 0 0 1-6.4-6.4l1.47-1.47-2.77-3.92Z" />,
     download: <><path d="M12 3v11M8 10l4 4 4-4M4 20h16" /></>,
@@ -150,7 +152,7 @@ function App() {
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>Hello, I&apos;m</p>
               <h1 id="hero-heading">Saicharan<br /><span>Peddapelli.</span></h1>
-              <p className={styles.heroLead}>Creating dynamic, responsive websites and web applications with a focus on clean code and seamless interactions.</p>
+              <p className={styles.heroLead}>Computer Science graduate building responsive web applications and backend APIs with React, FastAPI, and MongoDB.</p>
               <div className={styles.heroButtons}><ButtonLink href="/resumeOG.pdf" variant="resume" download="Saicharan-Peddapelli-Resume.pdf">Download résumé</ButtonLink><ButtonLink href={`mailto:${portfolio.email}`} variant="secondary">Let&apos;s connect</ButtonLink></div>
             </div>
             <aside className={styles.heroCard} aria-label="Portfolio focus">
@@ -189,7 +191,7 @@ function App() {
 
       <section className={`${styles.section} ${styles.experienceSection}`} id="experience" aria-labelledby="experience-title">
         <Reveal><SectionHeader id="experience-title" number="04" eyebrow="Hands-on experience" title="Practical work, built around useful interactions." />
-          <div className={styles.sourceNote}><Icon name="spark" size={20} /><div><h3>Project experience</h3><p>Built practical web applications focused on responsive design, budget tracking, CRUD operations, and clean user interaction.</p></div><a href="#projects" aria-label="Explore selected projects"><Icon name="arrow" size={18} /></a></div>
+          <div className={styles.sourceNote}><Icon name="spark" size={20} /><div><h3>Project experience</h3><p>Built practical web applications and backend APIs focused on responsive design, budgeting, CRUD operations, and clean user interaction.</p></div><a href="#projects" aria-label="Explore selected projects"><Icon name="arrow" size={18} /></a></div>
         </Reveal>
       </section>
 
@@ -230,7 +232,7 @@ function App() {
             <a href={`mailto:${portfolio.email}`} className={styles.contactCard}><span><Icon name="mail" size={19} /> Email</span><strong>{portfolio.email}</strong><Icon name="arrow" size={18} /></a>
             <a href={`tel:${portfolio.phone}`} className={styles.contactCard}><span><Icon name="phone" size={19} /> Phone</span><strong>{portfolio.phone}</strong><Icon name="arrow" size={18} /></a>
             <a href={portfolio.github} target="_blank" rel="noreferrer" className={styles.contactCard}><span><Icon name="github" size={19} /> GitHub</span><strong>saicharan-cmd</strong><Icon name="arrow" size={18} /></a>
-            <a href={portfolio.website} target="_blank" rel="noreferrer" className={styles.contactCard}><span><Icon name="spark" size={19} /> Website</span><strong>saicharanpeddapelli.in</strong><Icon name="arrow" size={18} /></a>
+            <a href={portfolio.linkedin} target="_blank" rel="noreferrer" className={styles.contactCard}><span><Icon name="linkedin" size={19} /> LinkedIn</span><strong>saicharan-peddapelli</strong><Icon name="arrow" size={18} /></a>
           </div>
         </Reveal>
       </section>
