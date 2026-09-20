@@ -1,17 +1,46 @@
 # Saicharan Peddapelli — Portfolio
 
-A responsive React + Vite personal portfolio based on the resume content.
+<p align="center">
+  <strong>Personal Portfolio Website</strong><br>
+  Built with React and Vite
+</p>
 
-## Run locally
+<p align="center">
+  <a href="https://saicharanpeddapelli.in" target="_blank">🌐 Live Portfolio</a>
+</p>
 
-Requirements:
-- Node.js 18+ recommended
+---
 
-Install dependencies:
+## ✨ About
+
+This repository contains my personal portfolio website, built to showcase my **skills, projects, experience, education, and professional background**.
+
+The website is designed with a responsive and modern interface that works across desktop and mobile devices.
+
+## 🛠️ Built With
+
+* **React** — UI development
+* **Vite** — Fast development and build tooling
+* **CSS** — Responsive styling
+* **JavaScript** — Application logic
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have **Node.js 18+** installed.
+
+### Installation
+
+Clone the repository and install the dependencies:
 
 ```bash
+git clone <your-repository-url>
+cd <your-project-folder>
 npm install
 ```
+
+### Run Locally
 
 Start the development server:
 
@@ -19,26 +48,60 @@ Start the development server:
 npm run dev
 ```
 
-Then open the local URL shown by Vite.
+Then open the local URL provided by Vite in your browser.
 
-## Build for production
+## 📦 Production Build
+
+Create an optimized production build:
 
 ```bash
 npm run build
 ```
 
-The production files are generated in `dist/`.
+The generated production files will be available in:
 
-## Main files
+```text
+dist/
+```
 
-- `src/App.jsx` — portfolio content and page structure
-- `src/App.module.css` — portfolio styling
-- `src/index.css` — global styles
-- `index.html` — page shell
-- `package.json` — project configuration
+## 📁 Project Structure
 
-## Domain
+```text
+.
+├── src/
+│   ├── App.jsx
+│   ├── App.module.css
+│   └── index.css
+├── index.html
+├── package.json
+└── README.md
+```
 
-The intended domain is:
+### Key Files
 
-saicharanpeddapelli.in
+| File                 | Description                            |
+| -------------------- | -------------------------------------- |
+| `src/App.jsx`        | Portfolio content and page structure   |
+| `src/App.module.css` | Component-specific styling             |
+| `src/index.css`      | Global styles                          |
+| `index.html`         | HTML page shell                        |
+| `package.json`       | Project configuration and dependencies |
+
+## 🌐 Live Website
+
+Visit my portfolio:
+
+**[saicharanpeddapelli.in](https://saicharanpeddapelli.in)**
+
+## 📌 Deployment
+
+The portfolio is deployed as a production website and is available through my custom domain:
+
+**https://saicharanpeddapelli.in**
+
+---
+
+<p align="center">
+  Made with ❤️ by <strong>Saicharan Peddapelli</strong>
+</p>
+
