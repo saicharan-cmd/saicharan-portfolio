@@ -284,7 +284,6 @@ npm run build      # output is written to dist/
 | Channel | |
 | --- | --- |
 | Email | [saicharanpeddapelli@proton.me](mailto:saicharanpeddapelli@proton.me) |
-| Phone | [+91 88017 05149](tel:8801705149) |
 | GitHub | [github.com/saicharan-cmd](https://github.com/saicharan-cmd) |
 | LinkedIn | [saicharan-peddapelli](https://www.linkedin.com/in/saicharan-peddapelli-a98655229/) |
 | Website | [saicharanpeddapelli.in](https://saicharanpeddapelli.in) |
