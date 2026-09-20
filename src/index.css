@@ -12,8 +12,20 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-color: rgba(167, 139, 250, .42) #0b111c;
+  scrollbar-width: thin;
+}
 body { min-width: 320px; margin: 0; background: #090e18; }
+img, video { display: block; max-width: 100%; height: auto; }
 button, a { -webkit-tap-highlight-color: transparent; }
-button:focus-visible, a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; }
+button:focus-visible, a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; border-radius: 4px; }
 ::selection { color: #ffffff; background: #7461c5; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

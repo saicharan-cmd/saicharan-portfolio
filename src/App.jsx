@@ -81,12 +81,17 @@ function useReveal() {
   useEffect(() => {
     const node = ref.current;
     if (!node) return undefined;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
+      setVisible(true);
+      return undefined;
+    }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setVisible(true);
         observer.unobserve(node);
       }
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
@@ -133,22 +138,47 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 861px)');
+    const onBreakpoint = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener('change', onBreakpoint);
+    return () => desktop.removeEventListener('change', onBreakpoint);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKeyDown = (event) => { if (event.key === 'Escape') setMenuOpen(false); };
+    const onPointerDown = (event) => {
+      if (!event.target.closest(`.${styles.navbar}`)) setMenuOpen(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('pointerdown', onPointerDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <main className={styles.page} id="top">
+      <a className={styles.skipLink} href="#about">Skip to content</a>
       <div className={styles.backdrop} aria-hidden="true"><span className={styles.orbOne} /><span className={styles.orbTwo} /><span className={styles.gridGlow} /></div>
 
       <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
         <nav className={styles.navbar} aria-label="Primary navigation">
           <a className={styles.brand} href="#top" onClick={closeMenu} aria-label="Saicharan Peddapelli — top of page"><span className={styles.brandMark}>{portfolio.initials}</span><span className={styles.brandName}>Saicharan<span>.</span></span></a>
-          <div className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}>
+          <div id="primary-navigation" className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}>
             {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>)}
             <a className={styles.mobileResume} href="/Saicharan_Peddapelli_Resume.pdf" download="Saicharan_Peddapelli_Resume.pdf" onClick={closeMenu}>Download résumé <Icon name="download" size={15} /></a>
           </div>
           <div className={styles.navActions}>
             <a className={styles.resumeNav} href="/Saicharan_Peddapelli_Resume.pdf" download="Saicharan_Peddapelli_Resume.pdf">Résumé <Icon name="download" size={14} /></a>
-            <button type="button" className={styles.menuButton} onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen}><Icon name={menuOpen ? 'close' : 'menu'} size={22} /></button>
+            <button type="button" className={styles.menuButton} onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="primary-navigation"><Icon name={menuOpen ? 'close' : 'menu'} size={22} /></button>
           </div>
         </nav>
       </header>
