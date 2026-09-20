@@ -12,12 +12,20 @@ const portfolio = {
   website: 'https://saicharanpeddapelli.in',
   summary:
     'Computer Science graduate with hands-on experience building responsive web applications and backend APIs using HTML, CSS, JavaScript, React, Python, FastAPI, MongoDB, and Streamlit. Developed practical projects focused on clean code, usability, CRUD operations, and efficient data handling. Seeking a fresher software development opportunity.',
+  focus:
+    'Interested in entry-level software development roles focused on building practical web applications, backend services, REST APIs, and database-driven solutions. Comfortable working across frontend and backend components using Python, JavaScript, TypeScript, React, FastAPI, Flask, MongoDB, and PostgreSQL. Focused on clean code, maintainable project structure, CRUD-based data handling, and usable interfaces. Interested in continuous learning and applying machine learning foundations alongside hands-on software projects.',
   strengths: ['Responsive web applications', 'Backend APIs & CRUD operations', 'Clean, maintainable code'],
   skills: [
     { label: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'C', 'C++', 'Java'] },
     { label: 'Frameworks & Libraries', items: ['React', 'FastAPI', 'Flask', 'Streamlit'] },
     { label: 'Databases', items: ['MongoDB', 'PostgreSQL'] },
     { label: 'Tools & Version Control', items: ['Git', 'GitHub', 'Docker'] }
+  ],
+  developmentAreas: [
+    { label: 'Frontend', detail: 'Responsive web interfaces using HTML, CSS, JavaScript, TypeScript, and React.' },
+    { label: 'Backend & APIs', detail: 'Application and REST API development using Python, FastAPI, and Flask.' },
+    { label: 'Databases', detail: 'Database-backed applications using MongoDB and PostgreSQL, including CRUD-based data handling.' },
+    { label: 'Development tools', detail: 'Git, GitHub, Docker, and Streamlit for development, version control, and application interfaces.' }
   ],
   education: [
     { institution: 'Vaageswari, Karimnagar', detail: 'B.Tech in Computer Science', dates: '2021 — 2025' },
@@ -27,14 +35,14 @@ const portfolio = {
     {
       name: 'BudgetApp',
       description: 'Designed a responsive budgeting application for managing budgets and transactions, with a focus on clarity and everyday usability.',
-      highlights: ['Customizable categories', 'Spending insights', 'Improved budget-tracking efficiency'],
+      highlights: ['Customizable categories', 'Spending insights for better tracking and visibility', 'Clear tracking and a simple budgeting workflow'],
       url: 'https://github.com/saicharan-cmd/BudgetApp'
     },
     {
       name: 'NoteAPI',
       description: 'Built a notes application with CRUD operations using FastAPI and MongoDB, with Streamlit for the user interface.',
       technologies: ['FastAPI', 'MongoDB', 'Streamlit'],
-      highlights: ['Seamless CRUD operations', 'Performance-focused and simple', 'Clean user interaction'],
+      highlights: ['CRUD operations with FastAPI and MongoDB', 'Streamlit-powered user interface', 'Practical full-stack application'],
       url: 'https://github.com/saicharan-cmd/Noteapp'
     }
   ],
@@ -136,10 +144,10 @@ function App() {
           <a className={styles.brand} href="#top" onClick={closeMenu} aria-label="Saicharan Peddapelli — top of page"><span className={styles.brandMark}>{portfolio.initials}</span><span className={styles.brandName}>Saicharan<span>.</span></span></a>
           <div className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}>
             {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>)}
-            <a className={styles.mobileResume} href="/resumeOG.pdf" download="Saicharan-Peddapelli-Resume.pdf" onClick={closeMenu}>Download résumé <Icon name="download" size={15} /></a>
+            <a className={styles.mobileResume} href="/Saicharan_Peddapelli_Resume.pdf" download="Saicharan_Peddapelli_Resume.pdf" onClick={closeMenu}>Download résumé <Icon name="download" size={15} /></a>
           </div>
           <div className={styles.navActions}>
-            <a className={styles.resumeNav} href="/resumeOG.pdf" download="Saicharan-Peddapelli-Resume.pdf">Résumé <Icon name="download" size={14} /></a>
+            <a className={styles.resumeNav} href="/Saicharan_Peddapelli_Resume.pdf" download="Saicharan_Peddapelli_Resume.pdf">Résumé <Icon name="download" size={14} /></a>
             <button type="button" className={styles.menuButton} onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen}><Icon name={menuOpen ? 'close' : 'menu'} size={22} /></button>
           </div>
         </nav>
@@ -153,7 +161,7 @@ function App() {
               <p className={styles.eyebrow}>Hello, I&apos;m</p>
               <h1 id="hero-heading">Saicharan<br /><span>Peddapelli.</span></h1>
               <p className={styles.heroLead}>Computer Science graduate building responsive web applications and backend APIs with React, FastAPI, and MongoDB.</p>
-              <div className={styles.heroButtons}><ButtonLink href="/resumeOG.pdf" variant="resume" download="Saicharan-Peddapelli-Resume.pdf">Download résumé</ButtonLink><ButtonLink href={`mailto:${portfolio.email}`} variant="secondary">Let&apos;s connect</ButtonLink></div>
+              <div className={styles.heroButtons}><ButtonLink href="/Saicharan_Peddapelli_Resume.pdf" variant="resume" download="Saicharan_Peddapelli_Resume.pdf">Download résumé</ButtonLink><ButtonLink href={`mailto:${portfolio.email}`} variant="secondary">Let&apos;s connect</ButtonLink></div>
             </div>
             <aside className={styles.heroCard} aria-label="Portfolio focus">
               <div className={styles.cardTopline}><Icon name="spark" size={17} /><span>Focus</span></div>
@@ -180,6 +188,10 @@ function App() {
       <section className={`${styles.section} ${styles.skillsSection}`} id="skills" aria-labelledby="skills-title">
         <Reveal><SectionHeader id="skills-title" number="02" eyebrow="Technical toolkit" title="Tools I use to turn ideas into working products." copy="A focused foundation across programming languages, development tools, and APIs." />
           <div className={styles.skillGrid}>{portfolio.skills.map((group, index) => <article className={styles.skillCard} key={group.label}><div className={styles.skillCardHead}><span>0{index + 1}</span><h3>{group.label}</h3></div><div className={styles.tags}>{group.items.map((item) => <span key={item}>{item}</span>)}</div></article>)}</div>
+          <div className={styles.areasBlock}>
+            <p className={styles.areasLabel}>Relevant development areas</p>
+            <div className={styles.areaGrid}>{portfolio.developmentAreas.map((area) => <article className={styles.areaCard} key={area.label}><h3>{area.label}</h3><p>{area.detail}</p></article>)}</div>
+          </div>
         </Reveal>
       </section>
 
@@ -192,6 +204,7 @@ function App() {
       <section className={`${styles.section} ${styles.experienceSection}`} id="experience" aria-labelledby="experience-title">
         <Reveal><SectionHeader id="experience-title" number="04" eyebrow="Hands-on experience" title="Practical work, built around useful interactions." />
           <div className={styles.sourceNote}><Icon name="spark" size={20} /><div><h3>Project experience</h3><p>Built practical web applications and backend APIs focused on responsive design, budgeting, CRUD operations, and clean user interaction.</p></div><a href="#projects" aria-label="Explore selected projects"><Icon name="arrow" size={18} /></a></div>
+          <div className={`${styles.sourceNote} ${styles.sourceNoteSpaced}`}><Icon name="spark" size={20} /><div><h3>Professional focus</h3><p>{portfolio.focus}</p></div><a href="#contact" aria-label="Start a conversation about a role"><Icon name="arrow" size={18} /></a></div>
         </Reveal>
       </section>
 
@@ -223,7 +236,7 @@ function App() {
       </section>
 
       <section className={styles.resumeSection} id="resume" aria-labelledby="resume-title">
-        <Reveal className={styles.resumePanel}><div><p className={styles.eyebrow}>Résumé</p><h2 id="resume-title">A closer look at my background.</h2><p>View the original résumé or save a copy for later.</p></div><div className={styles.resumeActions}><ButtonLink href="/resumeOG.pdf" variant="secondary" target="_blank">View résumé</ButtonLink><ButtonLink href="/resumeOG.pdf" variant="resume" download="Saicharan-Peddapelli-Resume.pdf">Download PDF</ButtonLink></div></Reveal>
+        <Reveal className={styles.resumePanel}><div><p className={styles.eyebrow}>Résumé</p><h2 id="resume-title">A closer look at my background.</h2><p>View the original résumé or save a copy for later.</p></div><div className={styles.resumeActions}><ButtonLink href="/Saicharan_Peddapelli_Resume.pdf" variant="secondary" target="_blank">View résumé</ButtonLink><ButtonLink href="/Saicharan_Peddapelli_Resume.pdf" variant="resume" download="Saicharan_Peddapelli_Resume.pdf">Download PDF</ButtonLink></div></Reveal>
       </section>
 
       <section className={styles.contactSection} id="contact" aria-labelledby="contact-title">

@@ -106,6 +106,15 @@
 .sourceNote p { margin: 7px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 .sourceNote > a { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); transition: color .2s ease, border-color .2s ease; }
 .sourceNote > a:hover { border-color: var(--violet); color: var(--violet); }
+.sourceNoteSpaced { margin-top: 14px; }
+
+.areasBlock { padding-left: 98px; margin-top: 46px; }
+.areasLabel { margin: 0 0 15px; color: var(--dim); font-size: 10px; }
+.areaGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.areaCard { padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.024); transition: border-color .25s ease, background .25s ease; }
+.areaCard:hover { border-color: rgba(167, 139, 250, .38); background: rgba(91, 74, 153, .09); }
+.areaCard h3 { margin: 0; font: 600 17px var(--font-display); letter-spacing: -.02em; }
+.areaCard p { margin: 11px 0 0; color: var(--muted); font-size: 14px; line-height: 1.62; }
 
 .projectGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 17px; padding-left: 98px; }
 .projectCard { position: relative; display: flex; min-height: 500px; flex-direction: column; overflow: hidden; padding: 27px; border: 1px solid var(--line); border-radius: 15px; background: linear-gradient(150deg, rgba(29, 38, 58, .72), rgba(14, 20, 32, .77)); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
@@ -171,7 +180,7 @@
   .navLinks { gap: 16px; }
   .sectionHeader { grid-template-columns: 48px 1fr; }
   .sectionIntro { grid-column: 2; margin: 0; }
-  .aboutLayout, .skillGrid, .timeline, .sourceNote, .projectGrid, .certificateGrid { margin-left: 48px; padding-left: 0; }
+  .aboutLayout, .skillGrid, .timeline, .sourceNote, .projectGrid, .certificateGrid, .areasBlock { margin-left: 48px; padding-left: 0; }
   .aboutLayout { grid-template-columns: 1fr; gap: 47px; }
   .strengths { max-width: 530px; }
   .skillGrid, .projectGrid { gap: 12px; }
@@ -206,9 +215,9 @@
   .sectionNumber { order: 2; padding: 0; }
   .sectionIntro { grid-column: auto; margin: 3px 0 0; }
   .sectionHeader h2, .resumePanel h2, .contactHeading h2 { font-size: clamp(2.25rem, 11vw, 3.4rem); }
-  .aboutLayout, .skillGrid, .timeline, .sourceNote, .projectGrid, .certificateGrid { margin-left: 0; }
+  .aboutLayout, .skillGrid, .timeline, .sourceNote, .projectGrid, .certificateGrid, .areasBlock { margin-left: 0; }
   .summary { font-size: 1.34rem; }
-  .skillGrid, .projectGrid, .contactGrid { grid-template-columns: 1fr; }
+  .skillGrid, .projectGrid, .contactGrid, .areaGrid { grid-template-columns: 1fr; }
   .skillCard { min-height: 178px; }
   .tags { margin-top: 35px; }
   .timelineItem { grid-template-columns: 1fr; gap: 6px; padding: 25px 0 25px 25px; }
