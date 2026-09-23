@@ -129,7 +129,7 @@ function ButtonLink({ href, children, variant = 'primary', download, target, ari
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navItems = [['About', 'about'], ['Skills', 'skills'], ['Education', 'education'], ['Work', 'experience'], ['Projects', 'projects'], ['Contact', 'contact']];
+  const navItems = [['About', 'about'], ['Skills', 'skills'], ['Education', 'education'], ['Work', 'experience'], ['Projects', 'projects'], ['Certifications', 'achievements'], ['Contact', 'contact']];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);

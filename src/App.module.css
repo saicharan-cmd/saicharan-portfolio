@@ -197,7 +197,7 @@
 
 @media (max-width: 900px) {
   .page { --indent: clamp(0px, 5vw, 44px); }
-  .navLinks { gap: 18px; }
+  .navLinks { gap: 15px; }
   .sectionHeader { grid-template-columns: 48px minmax(0, 1fr); gap: 18px; }
   .sectionIntro { grid-column: 2; max-width: 440px; margin: 2px 0 0; }
   .aboutLayout { grid-template-columns: minmax(0, 1fr); gap: 44px; }

@@ -145,7 +145,7 @@ npm run preview
 | 03 | Education | `#education` | Education |
 | 04 | Hands-on experience | `#experience` | Work |
 | 05 | Selected projects | `#projects` | Projects |
-| 06 | Certifications & achievements | `#achievements` | — |
+| 06 | Certifications & achievements | `#achievements` | Certifications |
 | — | Résumé | `#resume` | Résumé button |
 | — | Contact | `#contact` | Contact |
 
