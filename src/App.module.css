@@ -47,8 +47,8 @@
 .navLinks { display: flex; align-items: center; gap: 26px; }
 .navLinks a { position: relative; color: var(--muted); font-size: 13px; text-decoration: none; transition: color .2s ease; }
 .navLinks a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; content: ''; transform: scaleX(0); transform-origin: right; background: var(--violet); transition: transform .25s ease; }
-.navLinks a:hover, .navLinks a:focus-visible { color: var(--ink); }
-.navLinks a:hover::after, .navLinks a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+.navLinks a:hover, .navLinks a:focus-visible, .navLinkActive { color: var(--ink); }
+.navLinks a:hover::after, .navLinks a:focus-visible::after, .navLinkActive::after { transform: scaleX(1); transform-origin: left; }
 .navActions { display: flex; align-items: center; gap: 14px; }
 .resumeNav, .mobileResume { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font: 600 12px var(--font-mono); text-decoration: none; }
 .resumeNav { padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-2); transition: border-color .2s ease, background .2s ease; }
@@ -75,10 +75,11 @@
 .primary:hover, .resume:hover { box-shadow: 0 14px 32px rgba(74, 96, 190, .42); }
 .secondary { border-color: var(--line); background: var(--surface-2); }
 .secondary:hover { border-color: rgba(167, 139, 250, .52); background: rgba(167, 139, 250, .1); }
-.heroCard { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgba(29, 39, 59, .82), rgba(14, 20, 32, .7)); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 18px 50px rgba(0,0,0,.18); }
+.heroCard { position: relative; isolation: isolate; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgba(29, 39, 59, .88), rgba(14, 20, 32, .76)); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 22px 56px rgba(0,0,0,.22); }
+.heroCard::before { position: absolute; z-index: -1; width: 240px; height: 240px; top: -112px; right: -90px; border-radius: 50%; content: ''; background: radial-gradient(circle, rgba(126, 105, 233, .28), transparent 68%); transition: transform .35s ease; }
 .cardTopline { display: flex; align-items: center; gap: 9px; padding: 21px 22px 0; color: var(--violet); font: 600 var(--label) var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .heroCard > p { margin: 18px 22px 30px; font: 500 21px/1.34 var(--font-display); letter-spacing: -.02em; text-wrap: pretty; }
-.cardFooter { display: flex; border-top: 1px solid var(--line); }
+.cardFooter { display: flex; border-top: 1px solid var(--line); background: rgba(255,255,255,.018); }
 .cardFooter a { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 7px; min-height: 54px; color: var(--muted); font: 500 12px var(--font-mono); text-decoration: none; transition: color .2s ease, background .2s ease; }
 .cardFooter a + a { border-left: 1px solid var(--line); }
 .heroBottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-top: clamp(56px, 7vw, 88px); padding-top: 18px; border-top: 1px solid var(--line); }
@@ -88,6 +89,7 @@
 .heroBottom > p { max-width: 280px; margin: 0; color: var(--dim); font: 13px/1.6 var(--font-mono); text-align: right; }
 
 .section { padding: var(--section-y) 0; border-top: 1px solid var(--line); }
+.section::before { position: absolute; top: -1px; left: 0; width: 72px; height: 1px; content: ''; background: linear-gradient(90deg, var(--violet), transparent); opacity: .78; }
 .sectionHeader { display: grid; grid-template-columns: 70px minmax(0, .95fr) minmax(220px, .48fr); gap: 28px; align-items: start; margin-bottom: clamp(38px, 5vw, 58px); }
 .sectionNumber { padding-top: 4px; color: var(--violet); font: 600 12px var(--font-mono); }
 .sectionHeader h2, .resumePanel h2, .contactHeading h2 { max-width: 620px; margin: 12px 0 0; font: 700 clamp(2.05rem, 4vw, 3.75rem)/1.04 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
@@ -153,7 +155,8 @@
 
 .achievementsSection { padding-bottom: var(--section-y); }
 .certificateGrid { max-width: 845px; margin-left: var(--indent); }
-.certificateCard { padding: 26px; border: 1px solid rgba(167, 139, 250, .34); border-radius: 15px; background: linear-gradient(135deg, rgba(45, 44, 83, .56), rgba(16, 26, 42, .64)); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+.certificateCard { position: relative; overflow: hidden; padding: 26px; border: 1px solid rgba(167, 139, 250, .34); border-radius: 15px; background: linear-gradient(135deg, rgba(45, 44, 83, .56), rgba(16, 26, 42, .64)); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.certificateCard::before { position: absolute; top: 0; right: 0; width: 150px; height: 1px; content: ''; background: linear-gradient(90deg, transparent, var(--mint)); opacity: .68; }
 .certificateTopline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
 .certificateTopline > span { display: inline-flex; align-items: center; gap: 8px; color: var(--violet); font: 600 var(--label) var(--font-mono); letter-spacing: .09em; text-transform: uppercase; }
 .certificateTopline > strong { padding: 6px 10px; border: 1px solid rgba(110, 231, 203, .31); border-radius: 999px; color: var(--mint); background: rgba(110, 231, 203, .06); font: 600 var(--label) var(--font-mono); }
@@ -178,9 +181,9 @@
 .contactCard { position: relative; display: flex; min-height: 138px; flex-direction: column; justify-content: space-between; padding: 22px; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; color: var(--ink); background: var(--surface-1); text-decoration: none; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
 .contactCard > span { display: flex; align-items: center; gap: 9px; color: var(--muted); font: 500 var(--label) var(--font-mono); letter-spacing: .06em; text-transform: uppercase; }
 .contactCard strong { max-width: calc(100% - 30px); overflow-wrap: anywhere; margin-top: 22px; font: 600 16px var(--font-display); letter-spacing: -.02em; }
-.contactCard > svg:last-child { position: absolute; right: 22px; bottom: 22px; color: var(--violet); }
+.contactCard > svg:last-child { position: absolute; right: 22px; bottom: 22px; color: var(--violet); transition: transform .25s ease; }
 
-.footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0 36px; border-top: 1px solid var(--line); }
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 30px 0 36px; border-top: 1px solid var(--line); }
 .footer > p { max-width: 430px; margin: 0; color: var(--dim); font: 11.5px/1.6 var(--font-mono); }
 .toTop { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: var(--muted); font: 500 12px var(--font-mono); text-decoration: none; transition: color .2s ease; }
 .toTop:hover { color: var(--violet); }
@@ -188,6 +191,7 @@
 
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s cubic-bezier(.2,.65,.25,1), transform .6s cubic-bezier(.2,.65,.25,1); }
 .revealed { opacity: 1; transform: none; }
+.section, .resumeSection, .contactSection, .footer { content-visibility: auto; contain-intrinsic-size: auto 720px; }
 @keyframes traverse { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(210%); } }
 
 @media (max-width: 1100px) {
@@ -270,13 +274,16 @@
   .projectCard:hover { border-color: rgba(167, 139, 250, .49); transform: translateY(-7px); box-shadow: 0 20px 45px rgba(0,0,0,.2); }
   .projectCard:hover::before { transform: scale(1.2); }
   .contactCard:hover { border-color: rgba(167, 139, 250, .49); transform: translateY(-4px); background: rgba(91, 74, 153, .09); }
+  .contactCard:hover > svg:last-child { transform: translate(3px, -3px); }
+  .certificateCard:hover { border-color: rgba(110, 231, 203, .42); transform: translateY(-4px); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 20px 45px rgba(0,0,0,.18); }
+  .heroCard:hover::before { transform: scale(1.18); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .scrollLine::after { width: 100%; animation: none; }
-  .button, .skillCard, .projectCard, .contactCard, .areaCard, .navLinks, .navLinks a, .resumeNav, .cardFooter a { transition: none; }
-  .button:hover, .skillCard:hover, .projectCard:hover, .contactCard:hover, .areaCard:hover { transform: none; }
+  .button, .skillCard, .projectCard, .contactCard, .contactCard > svg:last-child, .areaCard, .certificateCard, .heroCard::before, .navLinks, .navLinks a, .resumeNav, .cardFooter a { transition: none; }
+  .button:hover, .skillCard:hover, .projectCard:hover, .contactCard:hover, .areaCard:hover, .certificateCard:hover { transform: none; }
 }
 
 .button:focus-visible, .contactCard:focus-visible, .projectLink:focus-visible, .toTop:focus-visible, .brand:focus-visible, .menuButton:focus-visible, .resumeNav:focus-visible, .mobileResume:focus-visible, .projectTopline a:focus-visible, .sourceNote > a:focus-visible, .cardFooter a:focus-visible {

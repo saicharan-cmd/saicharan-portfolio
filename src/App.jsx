@@ -58,6 +58,8 @@ const portfolio = {
   ]
 };
 
+const navItems = [['About', 'about'], ['Skills', 'skills'], ['Education', 'education'], ['Work', 'experience'], ['Projects', 'projects'], ['Certifications', 'achievements'], ['Contact', 'contact']];
+
 function Icon({ name, size = 18 }) {
   const icons = {
     arrow: <path d="M5 19 19 5M8 5h11v11" />,
@@ -129,13 +131,31 @@ function ButtonLink({ href, children, variant = 'primary', download, target, ari
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navItems = [['About', 'about'], ['Skills', 'skills'], ['Education', 'education'], ['Work', 'experience'], ['Projects', 'projects'], ['Certifications', 'achievements'], ['Contact', 'contact']];
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    let frameId;
+    const onScroll = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => setScrolled(window.scrollY > 12));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return undefined;
+    const sections = navItems.map(([, id]) => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      const current = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (current) setActiveSection(current.target.id);
+    }, { rootMargin: '-22% 0px -62%', threshold: [0.05, 0.2, 0.5] });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -173,7 +193,7 @@ function App() {
         <nav className={styles.navbar} aria-label="Primary navigation">
           <a className={styles.brand} href="#top" onClick={closeMenu} aria-label="Saicharan Peddapelli — top of page"><span className={styles.brandMark}>{portfolio.initials}</span><span className={styles.brandName}>Saicharan<span>.</span></span></a>
           <div id="primary-navigation" className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}>
-            {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>)}
+            {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => { setActiveSection(id); closeMenu(); }} className={activeSection === id ? styles.navLinkActive : undefined} aria-current={activeSection === id ? 'location' : undefined}>{label}</a>)}
             <a className={styles.mobileResume} href="/Saicharan_Peddapelli_Resume.pdf" download="Saicharan_Peddapelli_Resume.pdf" onClick={closeMenu}>Download résumé <Icon name="download" size={15} /></a>
           </div>
           <div className={styles.navActions}>
