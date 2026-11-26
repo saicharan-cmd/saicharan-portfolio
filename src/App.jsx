@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import styles from './App.module.css';
 
 const portfolio = {
@@ -283,6 +284,7 @@ function App() {
 
       <footer className={styles.footer}><a className={styles.brand} href="#top" aria-label="Back to the top"><span className={styles.brandMark}>{portfolio.initials}</span><span className={styles.brandName}>Saicharan<span>.</span></span></a><p>Designed around the details in Saicharan Peddapelli&apos;s résumé.</p><a href="#top" className={styles.toTop}>Back to top <Icon name="arrow" size={15} /></a></footer>
       <Analytics />
+      <SpeedInsights />
     </main>
   );
 }
